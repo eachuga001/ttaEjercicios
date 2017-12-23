@@ -3,13 +3,11 @@ package eus.ehu.tta.practica1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
-
-    public static String EXTRA_LOGIN;
+public class NuevoEjercicioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_nuevo_ejercicio);
     }
 }

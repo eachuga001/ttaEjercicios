@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Practica1</string>
+    <string name="usuario">Usuario</string>
+    <string name="msjLogin">Introduce DNI</string>
+    <string name="msjPassword">Introduce password</string>
+    <string name="password">Password</string>
+    <string name="stringBtnAcceder">ACCEDER</string>
+    <string name="stringLeccionName">Leccion 1: Introduccion a Android</string>
+    <string name="stringBtnNuevoTest">NUEVO TEST</string>
+    <string name="stringBtnNuevoEjercicio">NUEVO EJERCICIO</string>
+    <string name="stringBtnSeguimiento">SEGUIMIENTO</string>
+    <string name="stringBtnEnviar">ENVIAR</string>
+    <string name="stringBtnVerAyuda">VER AYUDA</string>
+    <string name="stringBtnSubirFichero">SUBIR FICHERO</string>
+    <string name="stringBtnSacarFoto">SACAR FOTO</string>
+    <string name="stringBtnGrabarAudio">GRABAR AUDIO</string>
+    <string name="stringBtnGrabarVideo">GRABAR VIDEO</string>
 </resources>

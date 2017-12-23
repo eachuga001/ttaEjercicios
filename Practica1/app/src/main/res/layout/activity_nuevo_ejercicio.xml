@@ -4,46 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eus.ehu.tta.practica1.HomeActivity"
+    tools:context="eus.ehu.tta.practica1.NuevoEjercicioActivity"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvLogin"
+        android:id="@+id/tvEjercicio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/usuario"
-        android:textSize="20dp"
-        android:textAlignment="center"/>
-
-    <TextView
-        android:id="@+id/tvLeccionId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/stringLeccionName"
-        android:textSize="20dp"
-        android:textAlignment="center"/>
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnNuevoTest"
+        android:id="@+id/btnSubirFichero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnNuevoTest"
-        android:onClick=""/>
+        android:text="@string/stringBtnSubirFichero"/>
 
     <Button
-        android:id="@+id/btnNuevoEjercicio"
+        android:id="@+id/btnSacarFoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnNuevoEjercicio"
-        android:onClick=""/>
+        android:text="@string/stringBtnSacarFoto"/>
 
     <Button
-        android:id="@+id/btnSeguimiento"
+        android:id="@+id/btnGrabarAudio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnSeguimiento"
-        android:onClick=""/>
+        android:text="@string/stringBtnGrabarAudio"/>
 
-
+    <Button
+        android:id="@+id/btnGrabaVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stringBtnGrabarVideo"/>
 
 </LinearLayout>
