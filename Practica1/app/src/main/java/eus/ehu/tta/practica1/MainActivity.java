@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view){
         Intent intent = new Intent(this,HomeActivity.class);
         if(authenticate(etLogin.toString(),etPassword.toString())){
-            intent.putExtra(HomeActivity.EXTRA_LOGIN,etLogin.toString());
+            intent.putExtra(HomeActivity.EXTRA_LOGIN,etLogin.getText().toString());
             startActivity(intent);
-        }
+        }else
+            Toast.makeText(this,"Error en login",Toast.LENGTH_SHORT).show();
     }
 
     public boolean authenticate (String login, String password){
         boolean isOk = true;
+        //Aqui va el codigo de validacion de contrasenas
+
 
         return isOk;
     }

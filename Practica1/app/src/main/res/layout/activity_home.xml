@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/stringBtnNuevoTest"
-        android:onClick=""/>
+        android:onClick="nuevoTest"/>
 
     <Button
         android:id="@+id/btnNuevoEjercicio"

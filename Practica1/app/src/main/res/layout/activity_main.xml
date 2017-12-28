@@ -4,46 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="eus.ehu.tta.practica1.MainActivity">
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:columnCount="2">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/usuario"/>
+            android:text="@string/usuario" />
 
         <EditText
             android:id="@+id/etLogin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/msjLogin"/>
+            android:hint="@string/msjLogin" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/password"/>
+            android:text="@string/password" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"/>
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/stringBtnAcceder"
-            android:onClick="login"/>
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
 
 
     </GridLayout>
 
-
-
-
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="@string/stringBtnAcceder" />
 
 </LinearLayout>
