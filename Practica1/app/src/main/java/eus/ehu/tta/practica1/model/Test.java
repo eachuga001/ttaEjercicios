@@ -9,8 +9,17 @@ import java.util.List;
 public class Test {
 
     public String textQuestion;
+    public String advice;
     public int correctChoice;
     public List<Choice> choices;
+
+    public void setAdvice(String advice) {
+        this.advice = advice;
+    }
+
+    public String getAdvise() {
+        return advice;
+    }
 
     public List<Choice> getChoices() {
         return choices;

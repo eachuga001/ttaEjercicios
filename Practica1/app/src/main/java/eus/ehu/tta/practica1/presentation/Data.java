@@ -29,6 +29,7 @@ public class Data implements Business{
 
         test.setTextQuestion(TEXT_QUESTION[0]);
         test.setCorrectChoice(CORRECT_OPTION[1]);
+        test.setAdvice(ADVICES[0]);
 
         for(int i=0;i<TEXT_OPTIONS.length;i++){
             Test.Choice choice = new Test.Choice();

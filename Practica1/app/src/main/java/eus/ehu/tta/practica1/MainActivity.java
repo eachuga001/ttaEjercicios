@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(View view){
         Intent intent = new Intent(this,HomeActivity.class);
-        if(authenticate(etLogin.toString(),etPassword.toString())){
+        String login = etLogin.getText().toString();
+        String pass = etPassword.getText().toString();
+
+        if(authenticate(login,pass)){
             intent.putExtra(HomeActivity.EXTRA_LOGIN,etLogin.getText().toString());
             startActivity(intent);
         }else

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eus.ehu.tta.practica1.NuevoTestActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/layoutNuevoTestActivity">
 
     <TextView
         android:id="@+id/tvPreguntaTest"
@@ -24,7 +25,18 @@
         android:id="@+id/btnEnviar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnEnviar"/>
+        android:text="@string/stringBtnEnviar"
+        android:visibility="invisible"
+        android:onClick="clickEnviar"/>
+
+    <Button
+        android:id="@+id/btnVerAyuda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stringBtnVerAyuda"
+        android:visibility="invisible"
+        android:onClick="clickVerAyuda"/>
+
     <TextView
         android:id="@+id/tvRespuestaTest"
         android:layout_width="match_parent"
