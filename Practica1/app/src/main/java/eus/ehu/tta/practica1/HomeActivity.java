@@ -35,9 +35,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void nuevoEjercicio(){
+    public void nuevoEjercicio(View view){
         Intent intent = new Intent(this,NuevoEjercicioActivity.class);
-
+        startActivity(intent);
     }
 
 }

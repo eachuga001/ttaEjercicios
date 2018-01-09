@@ -12,7 +12,7 @@ import eus.ehu.tta.practica1.model.Test;
 
 public class Data implements Business{
 
-    Test test;
+    private Test test;
 
     public Data (){
         setTest();
@@ -29,7 +29,8 @@ public class Data implements Business{
 
         test.setTextQuestion(TEXT_QUESTION[0]);
         test.setCorrectChoice(CORRECT_OPTION[1]);
-        test.setAdvice(ADVICES[0]);
+        test.setAdvice(ADVICES[1]);
+        test.setTypeMIME(MIME_TYPE[1]);//0=text/html, 1=video, 2=audio
 
         for(int i=0;i<TEXT_OPTIONS.length;i++){
             Test.Choice choice = new Test.Choice();

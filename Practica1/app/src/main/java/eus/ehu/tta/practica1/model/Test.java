@@ -8,17 +8,27 @@ import java.util.List;
 
 public class Test {
 
-    public String textQuestion;
-    public String advice;
-    public int correctChoice;
-    public List<Choice> choices;
+    private String textQuestion;
+    private String advice;
+    private int correctChoice;
+    private List<Choice> choices;
+    private String typeMIME;
+
 
     public void setAdvice(String advice) {
         this.advice = advice;
     }
 
-    public String getAdvise() {
+    public String getAdvice() {
         return advice;
+    }
+
+    public String getTypeMIME() {
+        return typeMIME;
+    }
+
+    public void setTypeMIME(String typeMIME) {
+        this.typeMIME = typeMIME;
     }
 
     public List<Choice> getChoices() {
