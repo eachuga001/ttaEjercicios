@@ -17,6 +17,7 @@ public interface Business {
     String LOGIN = "1234";
     String PASS = "1234";
 
-    String[] ADVICES = {"http://www.google.es","Advice 2","Advice 3"};
+    String[] ADVICES = {"http://www.google.es","http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4",
+            "http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"};
 
 }

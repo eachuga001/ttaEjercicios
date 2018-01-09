@@ -30,7 +30,7 @@ public class Data implements Business{
         test.setTextQuestion(TEXT_QUESTION[0]);
         test.setCorrectChoice(CORRECT_OPTION[1]);
         test.setAdvice(ADVICES[1]);
-        test.setTypeMIME(MIME_TYPE[1]);//0=text/html, 1=video, 2=audio
+        test.setTypeMIME(MIME_TYPE[2]);//0=text/html, 1=video, 2=audio
 
         for(int i=0;i<TEXT_OPTIONS.length;i++){
             Test.Choice choice = new Test.Choice();

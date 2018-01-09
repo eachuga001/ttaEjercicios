@@ -3,7 +3,7 @@ package eus.ehu.tta.practica1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.session.MediaController;
+import android.widget.MediaController;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -27,8 +27,9 @@ import java.util.List;
 import eus.ehu.tta.practica1.model.Business;
 import eus.ehu.tta.practica1.model.Test;
 import eus.ehu.tta.practica1.presentation.Data;
+import eus.ehu.tta.practica1.view.AudioPlayer;
 
-public class NuevoTestActivity extends AppCompatActivity implements View.OnClickListener {
+public class NuevoTestActivity extends AppCompatActivity implements View.OnClickListener, Runnable {
 
     private RadioGroup rgTestOptions;
     private LinearLayout layout;
@@ -91,6 +92,7 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
                     showVideo();
                     break;
                 case "audio":
+                    playAudio(view);
                     break;
             }
         }
@@ -114,25 +116,49 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
             layout.addView(web);
         }
     }
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     private void showVideo(){
 
         VideoView videoView = new VideoView(this);
-        videoView.setVideoURI(Uri.parse("http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"));
+        videoView.setVideoURI(Uri.parse(advice));
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         videoView.setLayoutParams(params);
         MediaController controller = new MediaController(this){
+            @Override
             public void hide(){
 
             }
+            @Override
             public boolean dispatchKeyEvent(KeyEvent event){
-                //if(event.getKeyCode() == Kew)
+                if(event.getKeyCode() == KeyEvent.KEYCODE_BACK)
+                    finish();
+                return NuevoTestActivity.super.dispatchKeyEvent(event);
             }
-        }
+        };
 
+        controller.setAnchorView(videoView);
+        videoView.setMediaController(controller);
 
         layout.addView(videoView);
+        videoView.start();
+    }
+
+    private void playAudio(View view){
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        AudioPlayer player = new AudioPlayer(view,this);
+        try {
+
+            player.setAudioUri(Uri.parse(advice));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        finish();
     }
 }
