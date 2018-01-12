@@ -50,7 +50,7 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        controller.setMediaPlayer((this));
+        controller.setMediaPlayer(this);
         controller.setAnchorView(view);
         controller.show(0);
     }
@@ -67,12 +67,12 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
 
     @Override
     public int getDuration() {
-        return 0;
+        return player.getDuration();
     }
 
     @Override
     public int getCurrentPosition() {
-        return 0;
+        return player.getCurrentPosition();
     }
 
     @Override
@@ -82,7 +82,7 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
 
     @Override
     public boolean isPlaying() {
-        return false;
+        return true;
     }
 
     @Override
@@ -92,21 +92,21 @@ public class AudioPlayer implements MediaController.MediaPlayerControl, MediaPla
 
     @Override
     public boolean canPause() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean canSeekBackward() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean canSeekForward() {
-        return false;
+        return true;
     }
 
     @Override
     public int getAudioSessionId() {
-        return 0;
+        return player.getAudioSessionId();
     }
 }

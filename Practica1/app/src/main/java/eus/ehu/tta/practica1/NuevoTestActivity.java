@@ -36,6 +36,7 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
     private int correct;
     private String advice = null;
     private String mimeType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,9 +147,10 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void playAudio(View view){
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
-        AudioPlayer player = new AudioPlayer(view,this);
+        //ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+          //      ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+
+        AudioPlayer player = new AudioPlayer(layout,this);
         try {
 
             player.setAudioUri(Uri.parse(advice));
