@@ -17,13 +17,15 @@
         android:id="@+id/btnSubirFichero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnSubirFichero"/>
+        android:text="@string/stringBtnSubirFichero"
+        android:onClick="clickSendFile"/>
 
     <Button
         android:id="@+id/btnSacarFoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/stringBtnSacarFoto"/>
+        android:text="@string/stringBtnSacarFoto"
+        android:onClick="clickTakePhoto"/>
 
     <Button
         android:id="@+id/btnGrabarAudio"

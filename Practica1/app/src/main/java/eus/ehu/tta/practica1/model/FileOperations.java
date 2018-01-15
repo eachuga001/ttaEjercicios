@@ -1,5 +1,8 @@
 package eus.ehu.tta.practica1.model;
 
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 
@@ -38,4 +41,6 @@ public class FileOperations {
         }
         return file;
     }
+
+
 }
