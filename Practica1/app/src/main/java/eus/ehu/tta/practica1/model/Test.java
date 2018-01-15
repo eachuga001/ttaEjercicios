@@ -9,19 +9,14 @@ import java.util.List;
 public class Test {
 
     private String textQuestion;
-    private String advice;
+    private String wording;
+
     private int correctChoice;
     private List<Choice> choices;
     private String typeMIME;
 
 
-    public void setAdvice(String advice) {
-        this.advice = advice;
-    }
 
-    public String getAdvice() {
-        return advice;
-    }
 
     public String getTypeMIME() {
         return typeMIME;
@@ -58,7 +53,9 @@ public class Test {
 
     public static class Choice {
 
-        int numChoice;
+        private int id;
+        private String advice;
+        private String answer;
         boolean isCorrect = false;
         String textChoice;
 
@@ -78,12 +75,12 @@ public class Test {
             this.textChoice = textChoice;
         }
 
-        public int getNumChoice() {
-            return numChoice;
+        public void setAdvice(String advice) {
+            this.advice = advice;
         }
 
-        public void setNumChoice(int numChoice) {
-            this.numChoice = numChoice;
+        public String getAdvice() {
+            return advice;
         }
 
 
