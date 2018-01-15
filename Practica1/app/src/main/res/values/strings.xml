@@ -16,6 +16,7 @@
     <string name="stringBtnGrabarAudio">GRABAR AUDIO</string>
     <string name="stringBtnGrabarVideo">GRABAR VIDEO</string>
     <string name="noMicrophone">Sin recurso: Microfono</string>
+    <string name="noCamera">Sin recurso: camara</string>
     <string name="noApp">Sin applicacion</string>
     <string name="successSaving">Guardado</string>
     <string name="errorSave">Error guardando</string>

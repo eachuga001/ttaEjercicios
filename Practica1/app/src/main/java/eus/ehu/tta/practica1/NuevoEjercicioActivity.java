@@ -39,9 +39,10 @@ public class NuevoEjercicioActivity extends AppCompatActivity {
             case READ_REQUEST_CODE:
 
                 break;
-            //case VIDEO_REQUEST_CODE:
+            case VIDEO_REQUEST_CODE:
+                Toast.makeText(this,"Video "+R.string.successSaving,Toast.LENGTH_SHORT).show();
             case AUDIO_REQUEST_CODE:
-                Toast.makeText(this,R.string.successSaving,Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Audio "+R.string.successSaving,Toast.LENGTH_SHORT).show();
 
                 break;
             case PICTURE_REQUEST_CODE:
@@ -80,7 +81,15 @@ public class NuevoEjercicioActivity extends AppCompatActivity {
     }
 
     public void clickRecVideo(View view){
-
+        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA))
+            Toast.makeText(this,R.string.noCamera,Toast.LENGTH_SHORT).show();
+        else{
+            Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if(intent.resolveActivity(getPackageManager())!=null)
+                startActivityForResult(intent,VIDEO_REQUEST_CODE);
+            else
+                Toast.makeText(this,R.string.noApp,Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void clickUploadFile(View view){
