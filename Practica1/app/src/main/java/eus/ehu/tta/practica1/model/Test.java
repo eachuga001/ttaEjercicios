@@ -8,23 +8,8 @@ import java.util.List;
 
 public class Test {
 
-    private String textQuestion;
     private String wording;
-
-    private int correctChoice;
     private List<Choice> choices;
-    private String typeMIME;
-
-
-
-
-    public String getTypeMIME() {
-        return typeMIME;
-    }
-
-    public void setTypeMIME(String typeMIME) {
-        this.typeMIME = typeMIME;
-    }
 
     public List<Choice> getChoices() {
         return choices;
@@ -34,55 +19,60 @@ public class Test {
         this.choices = choices;
     }
 
-    public String getTextQuestion() {
-        return textQuestion;
+    public String getWording() {
+        return wording;
     }
 
-    public void setTextQuestion(String textQuestion) {
-        this.textQuestion = textQuestion;
+    public void setWording(String wording) {
+        this.wording = wording;
     }
-
-    public int getCorrectChoice() {
-        return correctChoice;
-    }
-
-    public void setCorrectChoice(int correctChoice) {
-        this.correctChoice = correctChoice;
-    }
-
 
     public static class Choice {
 
         private int id;
-        private String advice;
+        private String advise;
         private String answer;
-        boolean isCorrect = false;
-        String textChoice;
+        private ResourceType resourceType;
+        private boolean correct;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getAdvise() {
+            return advise;
+        }
+
+        public void setAdvise(String advise) {
+            this.advise = advise;
+        }
+
+        public String getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(String answer) {
+            this.answer = answer;
+        }
+
+        public ResourceType getResourceType() {
+            return resourceType;
+        }
+
+        public void setResourceType(ResourceType resourceType) {
+            this.resourceType = resourceType;
+        }
 
         public boolean isCorrect() {
-            return isCorrect;
+            return correct;
         }
 
         public void setCorrect(boolean correct) {
-            isCorrect = correct;
+            this.correct = correct;
         }
-
-        public String getTextChoice() {
-            return textChoice;
-        }
-
-        public void setTextChoice(String textChoice) {
-            this.textChoice = textChoice;
-        }
-
-        public void setAdvice(String advice) {
-            this.advice = advice;
-        }
-
-        public String getAdvice() {
-            return advice;
-        }
-
-
     }
 }

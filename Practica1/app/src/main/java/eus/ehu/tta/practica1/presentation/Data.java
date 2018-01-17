@@ -3,16 +3,40 @@ package eus.ehu.tta.practica1.presentation;
 import java.util.ArrayList;
 import java.util.List;
 
+import eus.ehu.tta.practica1.comms.RestClient;
 import eus.ehu.tta.practica1.model.Business;
+import eus.ehu.tta.practica1.model.JSONTools;
 import eus.ehu.tta.practica1.model.Test;
+import eus.ehu.tta.practica1.model.User;
 
 /**
  * Created by edwin on 28/12/17.
  */
 
 public class Data implements Business{
+    JSONTools jsonTools;
 
-    private Test test;
+    public Data (JSONTools jsonTools){
+        this.jsonTools = jsonTools;
+    }
+
+    public Test getTest(String testString) {
+
+        Test test = jsonTools.getTestFromJson(testString);
+
+        return test;
+    }
+
+    @Override
+    public User getUser(String userString) {
+
+        User user = jsonTools.getUserFromJson(userString);
+
+        return user;
+    }
+
+   /* private Test test;
+    private JSONTools jsonTools;
 
     public Data (){
         setTest();
@@ -26,6 +50,8 @@ public class Data implements Business{
         test = new Test();
 
         List<Test.Choice> choices = new ArrayList<Test.Choice>();
+
+
 
         test.setTextQuestion(TEXT_QUESTION[0]);
         test.setCorrectChoice(CORRECT_OPTION[1]);
@@ -43,5 +69,5 @@ public class Data implements Business{
         test.setChoices(choices);
 
     }
-
+*/
 }

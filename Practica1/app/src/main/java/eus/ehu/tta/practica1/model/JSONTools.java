@@ -35,6 +35,42 @@ public class JSONTools {
         return null;
     }
 
+    public Test getTestFromJson (String stringJson){
+        Test test = new Test();
+        try {
+            JSONObject jsonObject = new JSONObject(stringJson);
+            test.setWording(jsonObject.getString("wording"));
+            JSONArray jsonArray = new JSONArray(jsonObject.getJSONArray("choices"));
+            List <Test.Choice> choices = new ArrayList<Test.Choice>();
+            for (int i=0;i<jsonArray.length();i++){
+                JSONObject json = jsonArray.getJSONObject(i);
+                Test.Choice choice = new Test.Choice();
+
+                choice.setId(json.getInt("id"));
+                choice.setAdvise(json.getString("advise"));
+                choice.setAnswer(json.getString("answer"));
+                choice.setCorrect(json.getBoolean("correct"));
+                ResourceType resourceType = getResourceType(json.getJSONObject("resourceType"));
+                choice.setResourceType(resourceType);
+                choices.add(choice);
+            }
+            test.setChoices(choices);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return test;
+    }
+
+
+    public ResourceType getResourceType(JSONObject json) throws JSONException {
+        ResourceType resourceType = new ResourceType();
+
+        resourceType.setId(json.getInt("id"));
+        resourceType.setDescription(json.getString("description"));
+        resourceType.setMime(json.getString("mime"));
+
+        return resourceType;
+    }
     /*public Frase getFrase(String stringJson){
         Frase frase = new Frase();
         try {

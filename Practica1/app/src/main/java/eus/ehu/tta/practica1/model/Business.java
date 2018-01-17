@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 public interface Business {
-    String[] TEXT_QUESTION = {"Test 1","Test 2","Test 3"};
+    /*String[] TEXT_QUESTION = {"Test 1","Test 2","Test 3"};
     String[] TEXT_OPTIONS = {"Option 1", "Option 2", "Option 3", "Option 4","Option 5"};
     String[] MIME_TYPE = {"text/html","video","audio"};
     int[] CORRECT_OPTION = {1,2,3};
@@ -18,6 +18,8 @@ public interface Business {
     String PASS = "1234";
 
     String[] ADVICES = {"http://www.google.es","http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4",
-            "http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"};
+            "http://u017633.ehu.eus:28080/static/ServidorTta/AndroidManifest.mp4"};*/
+    public Test getTest(String testString);
+    public User getUser(String testUser);
 
 }

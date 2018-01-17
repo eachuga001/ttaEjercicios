@@ -3,6 +3,7 @@ package eus.ehu.tta.practica1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.provider.Settings;
 import android.widget.MediaController;
 import android.net.Uri;
 import android.os.Build;
@@ -24,7 +25,9 @@ import android.widget.VideoView;
 import java.io.IOException;
 import java.util.List;
 
+import eus.ehu.tta.practica1.comms.RestClient;
 import eus.ehu.tta.practica1.model.Business;
+import eus.ehu.tta.practica1.model.JSONTools;
 import eus.ehu.tta.practica1.model.Test;
 import eus.ehu.tta.practica1.presentation.Data;
 import eus.ehu.tta.practica1.view.AudioPlayer;
@@ -33,9 +36,10 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
 
     private RadioGroup rgTestOptions;
     private LinearLayout layout;
-    private int correct;
     private String advice = null;
-    private String mimeType;
+    private Test test;
+    private String mimeType,testString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,22 +47,22 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_nuevo_test);
         layout = (LinearLayout)findViewById(R.id.layoutNuevoTestActivity);
 
-        Data data = new Data();
-        Test test = data.getTest();
+        Data data = new Data(new JSONTools());
+        Intent intent = getIntent();
+        testString = intent.getStringExtra(HomeActivity.EXTRA_TEST);
+        System.out.println(testString);
+        test = data.getTest(testString);
         rgTestOptions = (RadioGroup)findViewById(R.id.rgOpcionesTest);
         TextView tvPreguntaTest = (TextView)findViewById(R.id.tvPreguntaTest);
-        tvPreguntaTest.setText(test.getTextQuestion());
-        advice = test.getAdvice();
-        mimeType = test.getTypeMIME();
+        tvPreguntaTest.setText(test.getWording());
+
 
         int i = 0;
         for(Test.Choice choice : test.getChoices()){
             RadioButton radio =  new RadioButton(this);
-            radio.setText(choice.getTextChoice());
+            radio.setText(choice.getAnswer());
             radio.setOnClickListener(this);
             rgTestOptions.addView(radio);
-            if(choice.isCorrect())
-                correct = i;
             i++;
         }
 
@@ -71,9 +75,12 @@ public class NuevoTestActivity extends AppCompatActivity implements View.OnClick
         for(int i=0; i<choices;i++)
             rgTestOptions.getChildAt(i).setEnabled(false);
         layout.removeView(findViewById(R.id.btnEnviar));
+        advice = test.getChoices().get(selected).getAdvise();
+        mimeType = test.getChoices().get(selected).getResourceType().getMime();
 
-        rgTestOptions.getChildAt(correct).setBackgroundColor(Color.GREEN);
-        if(selected != correct){
+        if(test.getChoices().get(selected).isCorrect())
+            rgTestOptions.getChildAt(selected).setBackgroundColor(Color.GREEN);
+        if(test.getChoices().get(selected).isCorrect()==false){
             rgTestOptions.getChildAt(selected).setBackgroundColor(Color.RED);
             Toast.makeText(this,"Has fallado !!", Toast.LENGTH_SHORT).show();
             if(advice != null)
